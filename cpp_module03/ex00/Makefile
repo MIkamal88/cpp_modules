@@ -1,4 +1,4 @@
-NAME	=	fixed
+NAME	=	ClapTrap
 
 OBJ_PATH =	./obj/
 
@@ -8,7 +8,7 @@ CFLAGS =	-Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 SRC = main.cpp\
-			Fixed.cpp\
+			ClapTrap.cpp\
 
 OBJ =	$(addprefix $(OBJ_PATH), $(notdir $(SRC:.cpp=.o)))
 
