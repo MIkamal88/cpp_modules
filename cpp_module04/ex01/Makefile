@@ -1,4 +1,4 @@
-NAME	= Animals
+NAME	= Brain 
 
 OBJ_PATH =	./obj/
 
@@ -11,8 +11,7 @@ SRC = main.cpp\
 			Animals.cpp\
 			Dog.cpp\
 			Cat.cpp\
-			WrongAnimal.cpp\
-			WrongCat.cpp\
+			Brain.cpp\
 
 OBJ =	$(addprefix $(OBJ_PATH), $(notdir $(SRC:.cpp=.o)))
 
