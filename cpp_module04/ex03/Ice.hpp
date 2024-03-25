@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m_kamal <m_kamal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 09:18:30 by m_kamal           #+#    #+#             */
-/*   Updated: 2024/01/25 09:18:30 by m_kamal          ###   ########.fr       */
+/*   Created: 2024/03/24 16:24:11 by m_kamal           #+#    #+#             */
+/*   Updated: 2024/03/24 16:24:11 by m_kamal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef Cure_HPP
+#define Cure_HPP
 
-#include "Animals.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-class Dog : public Animal {
-private:
-  Brain *_Brain;
-
+class Ice : public AMateria {
 public:
-	// Constructors
-	Dog(void);
-	Dog(Dog const &src);
-	// Destructor
-	virtual ~Dog(void);
+  // Constructors
+  Ice(void);
+  Ice(const Ice &source);
+  // Destructor
+  virtual ~Ice(void);
+  // Operator Overload
+  Ice &operator=(const Ice &other);
 
-	// Copy Assignment Operator
-	Dog &operator=(Dog const &rhs);
-
-	// Member functions
-	virtual void makeSound(void) const;
+  // Member Functions
+  AMateria *clone(void) const;
+  void use(ICharacter &target);
 };
 
 #endif

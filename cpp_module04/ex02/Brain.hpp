@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m_kamal <m_kamal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 09:18:30 by m_kamal           #+#    #+#             */
-/*   Updated: 2024/01/25 09:18:30 by m_kamal          ###   ########.fr       */
+/*   Created: 2024/02/01 09:26:42 by m_kamal           #+#    #+#             */
+/*   Updated: 2024/02/01 09:26:42 by m_kamal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "Animals.hpp"
-#include "Brain.hpp"
+#include "iostream"
 
-class Dog : public Animal {
+class Brain {
 private:
-  Brain *_Brain;
+  std::string ideas[100];
 
 public:
-	// Constructors
-	Dog(void);
-	Dog(Dog const &src);
-	// Destructor
-	virtual ~Dog(void);
-
-	// Copy Assignment Operator
-	Dog &operator=(Dog const &rhs);
-
-	// Member functions
-	virtual void makeSound(void) const;
+  // Constructors
+  Brain();
+  Brain(Brain const &src);
+  // Destructor
+  ~Brain();
+  // Operators
+  Brain &operator=(Brain const &rhs);
+  // Member functions
+  std::string *getIdea(void);
 };
 
 #endif

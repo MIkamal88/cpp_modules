@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m_kamal <m_kamal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 09:18:30 by m_kamal           #+#    #+#             */
-/*   Updated: 2024/01/25 09:18:30 by m_kamal          ###   ########.fr       */
+/*   Created: 2024/03/21 15:50:36 by m_kamal           #+#    #+#             */
+/*   Updated: 2024/03/21 15:50:36 by m_kamal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-
-#include "Animals.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal {
-private:
-  Brain *_Brain;
+// Constructors
+Brain::Brain(void) { std::cout << "Brain Constructed." << std::endl; }
 
-public:
-	// Constructors
-	Dog(void);
-	Dog(Dog const &src);
-	// Destructor
-	virtual ~Dog(void);
+Brain::Brain(const Brain &src) { *this = src; }
 
-	// Copy Assignment Operator
-	Dog &operator=(Dog const &rhs);
+// Destructor
+Brain::~Brain(void) { std::cout << "Brain destroyed." << std::endl; }
 
-	// Member functions
-	virtual void makeSound(void) const;
-};
-
-#endif
+// Copy Assignment Operator
+Brain &Brain::operator=(const Brain &other) {
+  if (this != &other)
+    for (int i = 0; i < 100; i++)
+      this->ideas[i] = other.ideas[i];
+  return *this;
+}

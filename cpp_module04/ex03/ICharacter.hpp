@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m_kamal <m_kamal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 09:18:30 by m_kamal           #+#    #+#             */
-/*   Updated: 2024/01/25 09:18:30 by m_kamal          ###   ########.fr       */
+/*   Created: 2024/03/23 13:44:38 by m_kamal           #+#    #+#             */
+/*   Updated: 2024/03/23 13:44:38 by m_kamal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-#include "Animals.hpp"
-#include "Brain.hpp"
+# include <iostream>
 
-class Dog : public Animal {
-private:
-  Brain *_Brain;
+class AMateria;
 
-public:
-	// Constructors
-	Dog(void);
-	Dog(Dog const &src);
-	// Destructor
-	virtual ~Dog(void);
-
-	// Copy Assignment Operator
-	Dog &operator=(Dog const &rhs);
-
-	// Member functions
-	virtual void makeSound(void) const;
+class ICharacter {
+	public:
+		// Destructor
+		virtual ~ICharacter() {};
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif

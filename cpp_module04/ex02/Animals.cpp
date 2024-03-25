@@ -14,21 +14,21 @@
 
 // Constructors
 Animal::Animal(void) : _type("") {
-	std::cout << "Animal default constructor called" << std::endl;
+	std::cout << "Abstract Animal default constructor called" << std::endl;
 }
 
 Animal::Animal(std::string type) : _type(type) {
-	std::cout << "Animal" << _type << " constructor called" << std::endl;
+	std::cout << "Abstract Animal" << _type << " constructor called" << std::endl;
 
 }
 Animal::Animal(Animal const &src) {
-	std::cout << "Animal copy constructor called" << std::endl;
+	std::cout << "Abstract Animal copy constructor called" << std::endl;
 	*this = src;
 }
 
 // Destructor
 Animal::~Animal(void) {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "Abstract Animal destructor called" << std::endl;
 }
 
 // Copy Assignment Operator
@@ -41,10 +41,4 @@ Animal &Animal::operator=(Animal const &other) {
 // Member functions
 std::string Animal::getType(void) const {
 	return (this->_type);
-}
-void Animal::makeSound(void) const {
-	std::cout << "Animal ";
-	if (_type != "")
-		std::cout << _type << " ";
-	std::cout << "makes a sound" << std::endl;
 }

@@ -1,14 +1,17 @@
-NAME	=	ClapTrap
+NAME = Materia
 
 OBJ_PATH =	./obj/
-
 CC =			c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
 SRC = main.cpp\
-			ClapTrap.cpp\
+			Amateria.cpp\
+			Character.cpp\
+			Cure.cpp\
+			Ice.cpp\
+			MateriaSource.cpp\
 
 OBJ =	$(addprefix $(OBJ_PATH), $(notdir $(SRC:.cpp=.o)))
 

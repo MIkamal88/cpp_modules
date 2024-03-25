@@ -1,14 +1,16 @@
-NAME	=	ClapTrap
+NAME	= Animal
 
 OBJ_PATH =	./obj/
-
 CC =			c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
 SRC = main.cpp\
-			ClapTrap.cpp\
+			Animals.cpp\
+			Dog.cpp\
+			Cat.cpp\
+			Brain.cpp\
 
 OBJ =	$(addprefix $(OBJ_PATH), $(notdir $(SRC:.cpp=.o)))
 

@@ -40,7 +40,7 @@ fclean:		clean
 			@printf "\n$(RE)Executables removed!$(RC)\n\n"
 
 leak:	all
-	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(NAME) Makefile clean yourmama
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(NAME)
 
 # Colors
 CY			= \033[36;1m
