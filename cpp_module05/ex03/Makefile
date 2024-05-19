@@ -1,4 +1,4 @@
-NAME	= Form
+NAME	= Intern
 
 OBJ_PATH =	./obj/
 
@@ -9,10 +9,11 @@ RM = rm -rf
 
 SRC = main.cpp\
 			Bureaucrat.cpp\
+			Intern.cpp\
 			Form.cpp\
 			PresidentialPardonForm.cpp\
 			RobotomyRequestForm.cpp\
-			ShrubberyCreationForm.cpp
+			ShrubberyCreationForm.cpp\
 
 OBJ =	$(addprefix $(OBJ_PATH), $(notdir $(SRC:.cpp=.o)))
 
@@ -49,3 +50,4 @@ YE			= \033[33;1m
 GR			= \033[32;1m
 RE			= \033[31;1m
 RC			= \033[0m
+
