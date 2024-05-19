@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-#include <iterator>
 
 int main(void) {
   std::string input;

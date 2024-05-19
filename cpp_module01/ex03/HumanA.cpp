@@ -17,10 +17,7 @@ HumanA::HumanA(std::string name, Weapon &weapon)
 
 HumanA::~HumanA() {}
 
-void HumanA::attack(void) {
-  if (this->_weapon.getType() != "")
-    std::cout << _name << " attacks with their " << this->_weapon.getType()
-              << std::endl;
-  else
-    std::cout << _name << " has no weapon." << std::endl;
+void HumanA::attack(void) const {
+  std::cout << _name << " attacks with his " << _weapon.getType() << std::endl;
+  return;
 }

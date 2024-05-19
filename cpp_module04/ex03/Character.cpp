@@ -12,7 +12,6 @@
 
 #include "Character.hpp"
 #include "ICharacter.hpp"
-#include <iostream>
 
 // Constructors
 Character::Character(void) {
