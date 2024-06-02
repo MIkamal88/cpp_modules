@@ -16,10 +16,8 @@ Zombie *zombieHorde(int n, std::string name) {
   Zombie *horde = new Zombie[n];
 
   for (int i = 0; i < n; i++)
-	{
 		horde[i].set_name(name);
-    horde[i].get_name();
-	}
+
 	std::cout << std::endl;
   std::cout << name << " created..." << std::endl;
 	std::cout << std::endl;

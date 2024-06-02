@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: m_kamal <m_kamal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 18:41:05 by m_kamal           #+#    #+#             */
-/*   Updated: 2023/12/18 18:41:05 by m_kamal          ###   ########.fr       */
+/*   Created: 2024/05/21 20:08:56 by m_kamal           #+#    #+#             */
+/*   Updated: 2024/05/21 20:08:56 by m_kamal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
+#include "Converter.hpp"
 
-#define ZOMBIE_HPP
-
-#include <iomanip>
-#include <iostream>
-#include <string>
-
-class Zombie {
-private:
-  std::string name;
-
-public:
-  Zombie(std::string name);
-  ~Zombie();
-  Zombie *newZombie(std::string name);
-  void announce(void);
-  void randomChump(std::string name);
-};
-
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
-
-#endif
+int main(int argc, char **argv) {
+	if (argc != 2) {
+		std::cout << RED << "Error: Usage ./convert ..." << RESET << std::endl;
+		return EXIT_FAILURE;
+	}
+	Converter::convert(argv[1]);
+}
