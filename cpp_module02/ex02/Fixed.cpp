@@ -19,12 +19,16 @@ Fixed::Fixed(void) : _rawBits(0) {
 
 Fixed::Fixed(const int int_value) {
   // std::cout << "Int constructor called" << std::endl;
-  this->_rawBits = int_value << Fixed::_fractional_bits;
+  // Shifting the int_value by 8bits to the left to convert it to fixed point
+  // format
+  this->_rawBits = int_value << _fractional_bits;
 }
 
 Fixed::Fixed(const float float_value) {
   // std::cout << "Float constructor called" << std::endl;
-  this->_rawBits = roundf(float_value * (1 << Fixed::_fractional_bits));
+  // Shifting the float_value by 8bits to the left to convert it to fixed point
+  // format
+  this->_rawBits = roundf(float_value * (1 << _fractional_bits));
 }
 
 Fixed::Fixed(const Fixed &fixed) {
@@ -73,17 +77,17 @@ bool Fixed::operator!=(const Fixed &fixed) const {
 // Instantiated new object to store result as directly doing Fixed(addition)
 // disregards the fractional bits in the addition.
 Fixed Fixed::operator+(const Fixed &fixed) const {
-	Fixed result;
+  Fixed result;
 
-	result._rawBits = _rawBits + fixed._rawBits;
-	return result;
+  result._rawBits = _rawBits + fixed._rawBits;
+  return result;
 }
 
 Fixed Fixed::operator-(const Fixed &fixed) const {
-	Fixed result;
+  Fixed result;
 
-	result._rawBits = _rawBits - fixed._rawBits;
-	return result;
+  result._rawBits = _rawBits - fixed._rawBits;
+  return result;
 }
 
 Fixed Fixed::operator*(const Fixed &fixed) const {
@@ -98,10 +102,10 @@ Fixed Fixed::operator/(const Fixed &fixed) const {
     std::cout << "Division by zero" << std::endl;
     return (0);
   }
-	Fixed result;
+  Fixed result;
 
-	result._rawBits = (_rawBits * (1 << _fractional_bits)) / fixed._rawBits;
-	return result;
+  result._rawBits = (_rawBits * (1 << _fractional_bits)) / fixed._rawBits;
+  return result;
 }
 
 // Increment and decrement operators overload
@@ -112,7 +116,8 @@ Fixed &Fixed::operator++(void) {
 
 Fixed Fixed::operator++(int) {
   Fixed tmp(*this);
-  operator++();
+
+	this->_rawBits++;
   return (tmp);
 }
 
@@ -123,7 +128,8 @@ Fixed &Fixed::operator--(void) {
 
 Fixed Fixed::operator--(int) {
   Fixed tmp(*this);
-  operator--();
+
+	this->_rawBits--;
   return (tmp);
 }
 
