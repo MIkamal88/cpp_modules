@@ -13,69 +13,60 @@
 #include "Fixed.hpp"
 
 // Constructors
-Fixed::Fixed(void) : _fixed_point_value(0)
-{
-	std::cout << "Default constructor called" << std::endl;
+Fixed::Fixed(void) : _rawBits(0) {
+  std::cout << GREEN << "Default constructor called" << RESET << std::endl;
 }
 
-Fixed::Fixed(const int int_value)
-{
-	std::cout << "Int constructor called" << std::endl;
-	this->_fixed_point_value = int_value << Fixed::_fractional_bits;
+Fixed::Fixed(const int int_value) {
+  std::cout << GREEN << "Int constructor called" << RESET << std::endl;
+  this->_rawBits = int_value << Fixed::_fractional_bits;
 }
 
-Fixed::Fixed(const float float_value)
-{
-	std::cout << "Float constructor called" << std::endl;
-	this->_fixed_point_value = roundf(float_value * (1 << Fixed::_fractional_bits));
+Fixed::Fixed(const float float_value) {
+  std::cout << GREEN << "Float constructor called" << RESET << std::endl;
+  this->_rawBits = roundf(float_value * (1 << Fixed::_fractional_bits));
 }
 
-Fixed::Fixed(const Fixed &fixed)
-{
-	std::cout << "Copy constructor called" << std::endl;
-	*this = fixed;
+Fixed::Fixed(const Fixed &fixed) {
+  std::cout << GREEN << "Copy constructor called" << RESET << std::endl;
+  *this = fixed;
 }
 
 // Destructor
-Fixed::~Fixed(void)
-{
-	std::cout << "Destructor called" << std::endl;
+Fixed::~Fixed(void) {
+  std::cout << RED << "Destructor called" << RESET << std::endl;
 }
 
 // Assignment operator overload
-Fixed &Fixed::operator=(const Fixed &fixed)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixed_point_value = fixed.getRawBits();
-	return (*this);
+Fixed &Fixed::operator=(const Fixed &fixed) {
+  std::cout << GREEN << "Copy assignment operator called" << RESET << std::endl;
+  this->_rawBits = fixed.getRawBits();
+  return (*this);
 }
 
 // Member functions
-int Fixed::getRawBits(void) const
-{
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_fixed_point_value);
+int Fixed::getRawBits(void) const {
+  std::cout << YELLOW << "getRawBits member function called" << RESET
+            << std::endl;
+  return (this->_rawBits);
 }
 
-void Fixed::setRawBits(int const raw)
-{
-	std::cout << "setRawBits member function called" << std::endl;
-	this->_fixed_point_value = raw;
+void Fixed::setRawBits(int const raw) {
+  std::cout << YELLOW << "setRawBits member function called" << RESET
+            << std::endl;
+  this->_rawBits = raw;
 }
 
-float Fixed::toFloat(void) const
-{
-	return ((float)this->_fixed_point_value / (float)(1 << Fixed::_fractional_bits));
+float Fixed::toFloat(void) const {
+  return ((float)this->_rawBits / (float)(1 << Fixed::_fractional_bits));
 }
 
-int Fixed::toInt(void) const
-{
-	return (this->_fixed_point_value >> Fixed::_fractional_bits);
+int Fixed::toInt(void) const {
+  return (this->_rawBits >> Fixed::_fractional_bits);
 }
 
 // Non-member functions
-std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
-{
-	out << fixed.toFloat();
-	return (out);
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
+  out << fixed.toFloat();
+  return (out);
 }

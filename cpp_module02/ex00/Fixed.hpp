@@ -11,24 +11,24 @@
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
-# define FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
-class Fixed
-{
+class Fixed {
 private:
-		int                 _fixed_point_value;
-		static const int    _fractional_bits = 8;
+  int _rawBits;
+  static const int _fractional_bits = 8;
+
 public:
-		Fixed(void);
-		Fixed(const Fixed &fixed);
-		~Fixed(void);
+  Fixed(void);
+  Fixed(const Fixed &fixed);
+  ~Fixed(void);
 
-		Fixed &operator=(const Fixed &fixed);
+  Fixed &operator=(const Fixed &fixed);
 
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+  int getRawBits(void) const;
+  void setRawBits(int const raw);
 };
 
 #endif
