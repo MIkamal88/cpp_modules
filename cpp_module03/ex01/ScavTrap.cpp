@@ -17,27 +17,26 @@ ScavTrap::ScavTrap(void) : ClapTrap() {
   _hit_points = 100;
   _energy_points = 50;
   _attack_damage = 20;
-  std::cout << YELLOW << "ScavTrap Default constructed" << RESET
-            << std::endl;
+  std::cout << YELLOW << "ScavTrap Default constructed" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string &name) : ClapTrap(name) {
   _hit_points = 100;
   _energy_points = 50;
   _attack_damage = 20;
-  std::cout << YELLOW << "ScavTrap " << this->_name << " constructed"
-            << RESET << std::endl;
+  std::cout << YELLOW << "ScavTrap " << this->_name << " constructed" << RESET
+            << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src) {
   *this = src;
-  std::cout << YELLOW << "ScavTrap " << this->_name
-            << " copy constructed" << RESET << std::endl;
+  std::cout << YELLOW << "ScavTrap " << this->_name << " copy constructed"
+            << RESET << std::endl;
 }
 
 ScavTrap::~ScavTrap(void) {
-  std::cout << YELLOW << "ScavTrap " << this->_name << " destroyed"
-            << RESET << std::endl;
+  std::cout << YELLOW << "ScavTrap " << this->_name << " destroyed" << RESET
+            << std::endl;
 }
 
 // Copy assignment operator

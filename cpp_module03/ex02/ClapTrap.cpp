@@ -31,16 +31,16 @@ ClapTrap::ClapTrap(const ClapTrap &source) {
             << std::endl;
 }
 
-	// Copy assignment operator
-	ClapTrap	&ClapTrap::operator=(const ClapTrap &other){
-	if (this == &other)
-		return (*this);
-	_name = other._name;
-	_hit_points = other._hit_points;
-	_energy_points = other._energy_points;
-	_attack_damage = other._attack_damage;
-	return (*this);
-	}
+// Copy assignment operator
+ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
+  if (this == &other)
+    return (*this);
+  _name = other._name;
+  _hit_points = other._hit_points;
+  _energy_points = other._energy_points;
+  _attack_damage = other._attack_damage;
+  return (*this);
+}
 
 // Destructor
 ClapTrap::~ClapTrap(void) {

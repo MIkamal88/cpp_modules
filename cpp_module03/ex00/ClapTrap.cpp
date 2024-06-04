@@ -37,6 +37,18 @@ ClapTrap::~ClapTrap(void) {
             << std::endl;
 }
 
+// Operator Overload
+ClapTrap &ClapTrap::operator=(const ClapTrap &src) {
+  if (this == &src)
+    return (*this);
+  _name = src._name;
+  _hit_points = src._hit_points;
+  _energy_points = src._energy_points;
+  _attack_damage = src._attack_damage;
+
+  return (*this);
+}
+
 // Getters
 std::string ClapTrap::getName(void) { return (this->_name); }
 

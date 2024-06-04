@@ -33,10 +33,11 @@ public:
   // Constructors
   ClapTrap(void);
   ClapTrap(std::string &name);
-  // Copy constructor
   ClapTrap(const ClapTrap &source);
   // Destructor
   ~ClapTrap(void);
+  // Operator overload
+  ClapTrap &operator=(const ClapTrap &other);
   // Getters
   std::string getName(void);
   int getHitPoints(void);

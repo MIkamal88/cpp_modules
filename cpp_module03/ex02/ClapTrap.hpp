@@ -37,8 +37,8 @@ public:
   ClapTrap(const ClapTrap &source);
   // Destructor
   ~ClapTrap(void);
-	// Copy assignment operator
-	ClapTrap	&operator=(const ClapTrap &other);
+  // Copy assignment operator
+  ClapTrap &operator=(const ClapTrap &other);
   // Getters
   std::string getName(void);
   int getHitPoints(void);
