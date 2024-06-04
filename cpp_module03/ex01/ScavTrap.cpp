@@ -52,7 +52,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &other) {
 
 // Member Functions
 void ScavTrap::attack(std::string const &target) {
-  std::cout << YELLOW << "ScavTrap " << this->_name << " attacks " << target
+  std::cout << YELLOW << "!ScavTrap! " << this->_name << " attacks " << target
             << ", causing " << this->_attack_damage << " points of damage!"
             << RESET << std::endl;
 }
