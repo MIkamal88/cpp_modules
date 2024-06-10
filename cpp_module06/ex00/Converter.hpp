@@ -15,6 +15,14 @@
 #include <cstdlib>
 #include <limits>
 
+// Max Numbers
+# define MAX_INT std::numeric_limits<int>::max()
+# define MIN_INT std::numeric_limits<int>::min()
+# define MAX_FLOAT std::numeric_limits<float>::max()
+# define MIN_FLOAT std::numeric_limits<float>::min()
+# define MAX_DBL std::numeric_limits<double>::max()
+# define MIN_DBL std::numeric_limits<double>::min()
+
 // Color Macros
 # define RESET		"\e[m"
 # define RED		"\e[31m"
@@ -40,17 +48,10 @@ public:
   // Operator overloads
   Converter &operator=(Converter const &src);
   // Member functions
-  static bool _isChar(const std::string &str);
-  static bool _isInt(const std::string &str);
-  static bool _isFloat(const std::string &str);
-  static bool _isDouble(const std::string &str);
-  static int _getType(const std::string &str);
-
-  static void _toChar(const std::string &str);
-  static void _toInt(const std::string &str);
-  static void _toFloat(const std::string &str);
-  static void _toDouble(const std::string &str);
-
+	static int _getType(const std::string &str);
+	static void printInt(const std::string &str, int &type);
+	static void printChar(const std::string &str, int &type);
+	static void printDecimal(const std::string &str, int &type);
   static void convert(const std::string &str);
 
   // Exceptions
