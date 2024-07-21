@@ -8,6 +8,7 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <algorithm>
 
 #define DATA_FILE "./data.csv"
 
@@ -30,7 +31,6 @@
 #define INPUTNOTFOUND                                                    \
   "Error reading input file. Make sure your input file exists with the " \
   "right permissions."
-
 #define INPUTFORMAT                                                       \
   "Bad format in input file. Please, make sure your input file is a .txt" \
   "with two columns: `date,exchange_rate`"
@@ -47,19 +47,19 @@ class BitcoinExchange {
   std::string _minDate;
   std::string _maxDate;
 
-  void _loadDatabase(void);
+  void _loadDatabase(void); //
   void _btc(std::string date, float value);
-  bool _checkHeader(std::string line, input_type type);
-  void _checkLine(std::string line, input_type type);
-  bool _checkDate(std::string value, input_type type);
-  bool _checkValue(std::string value, input_type type);
-  void _trimCell(std::string &cell);
+  bool _checkHeader(std::string line, input_type type); //
+  void _checkLine(std::string line, input_type type); //
+  bool _checkDate(std::string date, input_type type); //
+  bool _checkValue(std::string value, input_type type); //
+  void _trimWS(std::string &cell); //
 
  public:
-  BitcoinExchange(void);
-  ~BitcoinExchange(void);
+  BitcoinExchange(void); //
+  ~BitcoinExchange(void); //
 
-  void readInput(std::string filename);
+  void readInput(std::string filename); //
 
   // Exception Classes
   class DatabaseLoadException : public std::exception {
@@ -91,7 +91,7 @@ class BitcoinExchange {
   class BadInputDataException : public std::exception {
    public:
     BadInputDataException(std::string line)
-        : _error_message("Invalid Input => " + line){};
+        : _error_message("bad input => " + line){};
     virtual ~BadInputDataException(void) throw(){};
     virtual const char *what() const throw() {
       return (_error_message.c_str());
@@ -100,23 +100,11 @@ class BitcoinExchange {
    private:
     std::string _error_message;
   };
-  class BadDateException : public std::exception {
-   public:
-    BadDateException(std::string date)
-        : _error_message("Invalid date => " + date){};
-    virtual ~BadDateException(void) throw(){};
-    virtual const char *what() const throw() {
-      return (_error_message.c_str());
-    };
-
-   private:
-    std::string _error_message;
-  };
   class NegativeValueException : public std::exception {
-    virtual const char *what() const throw() { return "Negative value"; }
+    virtual const char *what() const throw() { return "not a positive number."; }
   };
   class TooLargeValueException : public std::exception {
-    virtual const char *what() const throw() { return "Too large value"; };
+    virtual const char *what() const throw() { return "too large a number."; };
   };
 };
 #endif
