@@ -13,9 +13,9 @@
 #include "Converter.hpp"
 
 int main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cout << RED << "Error: Usage ./convert ..." << RESET << std::endl;
-		return EXIT_FAILURE;
-	}
-	Converter::convert(argv[1]);
+  if (argc != 2) {
+    std::cout << RED << "Error: Usage ./convert ..." << RESET << std::endl;
+    return EXIT_FAILURE;
+  }
+  Converter::convert(argv[1]);
 }

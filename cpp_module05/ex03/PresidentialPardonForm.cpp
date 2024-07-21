@@ -27,8 +27,8 @@ PresidentialPardonForm::PresidentialPardonForm(
 PresidentialPardonForm::~PresidentialPardonForm(void) {}
 
 // Operators
-PresidentialPardonForm &
-PresidentialPardonForm::operator=(const PresidentialPardonForm &source) {
+PresidentialPardonForm &PresidentialPardonForm::operator=(
+    const PresidentialPardonForm &source) {
   if (this == &source)
     return (*this);
   _target = source._target;
@@ -36,12 +36,15 @@ PresidentialPardonForm::operator=(const PresidentialPardonForm &source) {
 }
 
 // Member functions
-std::string PresidentialPardonForm::getTarget(void) const { return _target; }
+std::string PresidentialPardonForm::getTarget(void) const {
+  return _target;
+}
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
-	if (!this->getSign())
-		throw Form::FormNotSignedException();
-	if (executor.getGrade() > this->getExecGrade())
-		throw Form::GradeTooLowException();
-	std::cout << _target << " has been pardoned by Zafod Beeblebrox." << std::endl;
+  if (!this->getSign())
+    throw Form::FormNotSignedException();
+  if (executor.getGrade() > this->getExecGrade())
+    throw Form::GradeTooLowException();
+  std::cout << _target << " has been pardoned by Zafod Beeblebrox."
+            << std::endl;
 }

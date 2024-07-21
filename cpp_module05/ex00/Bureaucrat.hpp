@@ -17,6 +17,11 @@
 #include <iostream>
 #include <ostream>
 
+# define RESET		"\e[m"
+# define RED		"\e[31m"
+# define GREEN		"\e[32m"
+# define YELLOW		"\e[33m"
+
 class Bureaucrat {
 private:
   std::string const _name;
@@ -44,12 +49,12 @@ public:
 
   class GradeTooHighException : public std::exception {
   public:
-    virtual const char *what() const throw() { return "Grade too high!"; }
+    virtual const char *what() const throw() { return RED "Grade too high!" RESET ; }
   };
 
   class GradeTooLowException : public std::exception {
   public:
-    virtual const char *what() const throw() { return "Grade too low!"; }
+    virtual const char *what() const throw() { return RED "Grade too low!" RESET ; }
   };
 };
 

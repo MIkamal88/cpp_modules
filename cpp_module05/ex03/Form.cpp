@@ -17,7 +17,9 @@ Form::Form(void)
     : _name("Default"), _signed(false), _sign_grade(1), _exec_grade(1) {}
 
 Form::Form(std::string name, int sign_grade, int exec_grade)
-    : _name(name), _signed(false), _sign_grade(sign_grade),
+    : _name(name),
+      _signed(false),
+      _sign_grade(sign_grade),
       _exec_grade(exec_grade) {
   if (sign_grade < _max_grade || exec_grade < _max_grade)
     throw Form::GradeTooHighException();
@@ -28,8 +30,10 @@ Form::Form(std::string name, int sign_grade, int exec_grade)
 }
 
 Form::Form(const Form &source)
-    : _name(source._name), _signed(source._signed),
-      _sign_grade(source._sign_grade), _exec_grade(source._exec_grade) {
+    : _name(source._name),
+      _signed(source._signed),
+      _sign_grade(source._sign_grade),
+      _exec_grade(source._exec_grade) {
   *this = source;
 }
 
@@ -44,13 +48,21 @@ Form &Form::operator=(const Form &source) {
 }
 
 // Getters
-std::string Form::getName(void) const { return (_name); }
+std::string Form::getName(void) const {
+  return (_name);
+}
 
-bool Form::getSign(void) const { return (_signed); }
+bool Form::getSign(void) const {
+  return (_signed);
+}
 
-int Form::getSignGrade(void) const { return (_sign_grade); }
+int Form::getSignGrade(void) const {
+  return (_sign_grade);
+}
 
-int Form::getExecGrade(void) const { return (_exec_grade); }
+int Form::getExecGrade(void) const {
+  return (_exec_grade);
+}
 
 // Member Functions
 void Form::beSigned(Bureaucrat &bureaucrat) {

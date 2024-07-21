@@ -16,10 +16,10 @@
 #include "Form.hpp"
 
 class ShrubberyCreationForm : public Form {
-private:
+ private:
   std::string _target;
 
-public:
+ public:
   // Constructors
   ShrubberyCreationForm(void);
   ShrubberyCreationForm(std::string target);
@@ -33,9 +33,9 @@ public:
   void execute(Bureaucrat const &executor) const;
   // Exceptions
   class FileNotOpenedException : public std::exception {
-  public:
+   public:
     virtual const char *what() const throw() {
-      return "Error: could not open file.";
+      return RED "Error: could not open file." RESET;
     }
   };
 };

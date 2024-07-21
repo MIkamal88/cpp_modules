@@ -16,7 +16,7 @@
 #include "Bureaucrat.hpp"
 
 class Form {
-private:
+ private:
   static int const _max_grade = 1;
   static int const _min_grade = 150;
   std::string const _name;
@@ -24,7 +24,7 @@ private:
   int const _sign_grade;
   int const _exec_grade;
 
-public:
+ public:
   // Constructors and destructor
   Form(void);
   Form(std::string name, int sign_grade, int exec_grade);
@@ -41,18 +41,24 @@ public:
   virtual void execute(Bureaucrat const &executor) const = 0;
   // Exceptions
   class GradeTooHighException : public std::exception {
-  public:
-    virtual const char *what() const throw() { return "Grade too high!"; }
+   public:
+    virtual const char *what() const throw() {
+      return RED "Grade too high!" RESET;
+    }
   };
 
   class GradeTooLowException : public std::exception {
-  public:
-    virtual const char *what() const throw() { return "Grade too low!"; }
+   public:
+    virtual const char *what() const throw() {
+      return RED "Grade too low!" RESET;
+    }
   };
 
   class FormNotSignedException : public std::exception {
-  public:
-    virtual const char *what() const throw() { return "Form not signed"; }
+   public:
+    virtual const char *what() const throw() {
+      return RED "Form not signed" RESET;
+    }
   };
 };
 

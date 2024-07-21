@@ -15,7 +15,9 @@
 // Constructors and destructor
 Converter::Converter() {}
 
-Converter::Converter(Converter const &src) { *this = src; }
+Converter::Converter(Converter const &src) {
+  *this = src;
+}
 
 Converter::~Converter() {}
 

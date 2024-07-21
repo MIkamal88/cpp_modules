@@ -18,10 +18,16 @@ int main(void) {
 
     std::cout << b1 << std::endl;
     b1.incrementGrade();
-    // b1.decrementGrade();
-  } catch (Bureaucrat::GradeTooHighException &e) {
+  } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
-  } catch (Bureaucrat::GradeTooLowException &e) {
+  }
+
+  try {
+    Bureaucrat b2("Bureaucrat 1", 150);
+
+    std::cout << b2 << std::endl;
+    b2.decrementGrade();
+  } catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
 }

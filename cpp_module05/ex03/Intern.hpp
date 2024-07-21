@@ -18,10 +18,10 @@
 enum FormType { SHRUBBERY_CREATION, ROBOTOMY_REQUEST, PRESIDENTIAL_PARDON };
 
 class Intern {
-private:
+ private:
   std::string _formTypes[3];
 
-public:
+ public:
   // Constructors and Destructor
   Intern();
   ~Intern();
@@ -29,7 +29,7 @@ public:
   Form *makeform(std::string formName, std::string target);
   // Exceptions
   class FormTypeNotFoundException : public std::exception {
-    virtual const char *what() const throw() { return "Form type not found!"; }
+    virtual const char *what() const throw() { return RED "Form type not found!" RED ; }
   };
 };
 

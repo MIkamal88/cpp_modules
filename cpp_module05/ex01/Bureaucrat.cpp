@@ -25,7 +25,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &source) { *this = source; }
+Bureaucrat::Bureaucrat(const Bureaucrat &source) {
+  *this = source;
+}
 
 Bureaucrat::~Bureaucrat(void) {}
 
@@ -38,9 +40,13 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &source) {
 }
 
 // Getters
-std::string Bureaucrat::getName(void) const { return (_name); }
+std::string Bureaucrat::getName(void) const {
+  return (_name);
+}
 
-int Bureaucrat::getGrade(void) const { return (_grade); }
+int Bureaucrat::getGrade(void) const {
+  return (_grade);
+}
 
 // Member Functions
 void Bureaucrat::incrementGrade(void) {
@@ -58,17 +64,18 @@ void Bureaucrat::decrementGrade(void) {
 }
 
 // Operator << overload
-std::ostream& operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
-	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-	return (os);
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
+  os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+  return (os);
 }
 
 // Sign Form
 void Bureaucrat::signForm(Form &form) {
-	try {
-		form.beSigned(*this);
-		std::cout << _name << " signs " << form.getName() << std::endl;
-	} catch (std::exception &e) {
-		std::cout << _name << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
-	}
+  try {
+    form.beSigned(*this);
+    std::cout << _name << " signs " << form.getName() << std::endl;
+  } catch (std::exception &e) {
+    std::cout << _name << " cannot sign " << form.getName() << " because "
+              << e.what() << std::endl;
+  }
 }

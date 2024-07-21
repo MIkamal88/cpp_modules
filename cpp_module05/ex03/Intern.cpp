@@ -32,18 +32,18 @@ Form *Intern::makeform(std::string formName, std::string target) {
       break;
 
   switch (form_type) {
-  case SHRUBBERY_CREATION:
-    form = new ShrubberyCreationForm(target);
-    break;
-  case ROBOTOMY_REQUEST:
-    form = new RobotomyRequestForm(target);
-    break;
-  case PRESIDENTIAL_PARDON:
-    form = new PresidentialPardonForm(target);
-    break;
-  default:
-    throw Intern::FormTypeNotFoundException();
-    return (NULL);
+    case SHRUBBERY_CREATION:
+      form = new ShrubberyCreationForm(target);
+      break;
+    case ROBOTOMY_REQUEST:
+      form = new RobotomyRequestForm(target);
+      break;
+    case PRESIDENTIAL_PARDON:
+      form = new PresidentialPardonForm(target);
+      break;
+    default:
+      throw Intern::FormTypeNotFoundException();
+      return (NULL);
   }
   std::cout << "Intern creates " << formName << "." << std::endl;
   return (form);

@@ -17,16 +17,21 @@
 #include <iostream>
 #include <ostream>
 
+#define RESET "\e[m"
+#define RED "\e[31m"
+#define GREEN "\e[32m"
+#define YELLOW "\e[33m"
+
 class Form;
 
 class Bureaucrat {
-private:
+ private:
   std::string const _name;
   static int const _max_grade = 1;
   static int const _min_grade = 150;
   int _grade;
 
-public:
+ public:
   // Constructors and deconstructors
   Bureaucrat(void);
   Bureaucrat(std::string name, int grade);
@@ -44,16 +49,20 @@ public:
   void incrementGrade(void);
   void decrementGrade(void);
   void signForm(Form &form);
-	void executeForm(Form const &form) const;
+  void executeForm(Form const &form) const;
 
   class GradeTooHighException : public std::exception {
-  public:
-    virtual const char *what() const throw() { return "Grade too high!"; }
+   public:
+    virtual const char *what() const throw() {
+      return RED "Grade too high!" RESET;
+    }
   };
 
   class GradeTooLowException : public std::exception {
-  public:
-    virtual const char *what() const throw() { return "Grade too low!"; }
+   public:
+    virtual const char *what() const throw() {
+      return RED "Grade too low!" RESET;
+    }
   };
 };
 

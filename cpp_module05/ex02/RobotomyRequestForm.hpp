@@ -14,13 +14,12 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "Form.hpp"
-#include <cstdlib>
 
 class RobotomyRequestForm : public Form {
-private:
+ private:
   std::string _target;
 
-public:
+ public:
   // Constructors
   RobotomyRequestForm(void);
   RobotomyRequestForm(std::string target);

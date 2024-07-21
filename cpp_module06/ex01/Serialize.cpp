@@ -1,30 +1,30 @@
 #include "Serialize.hpp"
 
-//Constructors and Destructor
+// Constructors and Destructor
 Serializer::Serializer() {}
 
 Serializer::Serializer(Serializer const &src) {
-	if (this != &src)
-		*this = src;
-	*this = src;
+  if (this != &src)
+    *this = src;
+  *this = src;
 }
 
 Serializer::~Serializer() {}
 
-//Operator Overload
+// Operator Overload
 Serializer &Serializer::operator=(Serializer const &src) {
-	if (this != &src)
-		*this = src;
-	return *this;
+  if (this != &src)
+    *this = src;
+  return *this;
 }
 
-//Member Functions
+// Member Functions
 uintptr_t Serializer::serialize(Data *ptr) {
-    uintptr_t raw = reinterpret_cast<uintptr_t>(ptr);
-    return (raw);
+  uintptr_t raw = reinterpret_cast<uintptr_t>(ptr);
+  return (raw);
 }
 
 Data *Serializer::deserialize(uintptr_t raw) {
-    Data *ptr = reinterpret_cast<Data *>(raw);
-    return (ptr);
+  Data *ptr = reinterpret_cast<Data *>(raw);
+  return (ptr);
 }

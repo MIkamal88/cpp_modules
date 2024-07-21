@@ -5,13 +5,13 @@
 #include <string>
 
 // Color Macros
-# define RESET		"\e[m"
-# define RED		"\e[31m"
-# define GREEN		"\e[32m"
-# define YELLOW		"\e[33m"
-# define BLUE		"\e[34m"
-# define MAGENTA	"\e[35m"
-# define CYAN		"\e[36m"
+#define RESET "\e[m"
+#define RED "\e[31m"
+#define GREEN "\e[32m"
+#define YELLOW "\e[33m"
+#define BLUE "\e[34m"
+#define MAGENTA "\e[35m"
+#define CYAN "\e[36m"
 
 typedef unsigned long int uintptr_t;
 
@@ -22,11 +22,11 @@ struct Data {
 };
 
 class Serializer {
-public:
+ public:
   static uintptr_t serialize(Data *ptr);
   static Data *deserialize(uintptr_t raw);
 
-private:
+ private:
   Serializer();
   Serializer(Serializer const &copy);
   ~Serializer();

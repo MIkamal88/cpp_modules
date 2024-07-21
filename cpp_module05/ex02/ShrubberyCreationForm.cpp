@@ -27,8 +27,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src)
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
 
 // Operators
-ShrubberyCreationForm &
-ShrubberyCreationForm::operator=(ShrubberyCreationForm const &source) {
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(
+    ShrubberyCreationForm const &source) {
   if (this == &source)
     return (*this);
   _target = source._target;
@@ -36,7 +36,9 @@ ShrubberyCreationForm::operator=(ShrubberyCreationForm const &source) {
 }
 
 // Member functions
-std::string ShrubberyCreationForm::getTarget(void) const { return (_target); }
+std::string ShrubberyCreationForm::getTarget(void) const {
+  return (_target);
+}
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
   if (!this->getSign())
@@ -59,6 +61,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
   outfile << "      ||      " << std::endl;
   outfile.close();
 
-  std::cout << "Shrubbery has been created by " << executor.getName()
-            << "." << std::endl;
+  std::cout << "Shrubbery has been created by " << executor.getName() << "."
+            << std::endl;
 }

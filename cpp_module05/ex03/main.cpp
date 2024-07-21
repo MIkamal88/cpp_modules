@@ -18,16 +18,16 @@ int main(void) {
 
   try {
     rrf = someRandomIntern.makeform("robotomy request", "Bender");
-		std::cout << *rrf << std::endl << std::endl;
+    std::cout << *rrf << std::endl << std::endl;
     delete rrf;
     rrf = someRandomIntern.makeform("presidential pardon", "Bender");
-		std::cout << *rrf << std::endl << std::endl;
+    std::cout << *rrf << std::endl << std::endl;
     delete rrf;
     rrf = someRandomIntern.makeform("shrubbery creation", "Bender");
-		std::cout << *rrf << std::endl << std::endl;
+    std::cout << *rrf << std::endl << std::endl;
     delete rrf;
     rrf = someRandomIntern.makeform("shrubbery", "Bender");
-		std::cout << *rrf << std::endl << std::endl;
+    std::cout << *rrf << std::endl << std::endl;
     delete rrf;
   } catch (std::exception &e) {
     std::cerr << e.what() << std::endl;
