@@ -145,8 +145,8 @@ void BitcoinExchange::_trimWS(std::string &cell) {
  *
  * @param header The line to be checked
  * @param type The type of the file
- * @return true If the header is correct
- * @return false If the header is incorrect
+ *
+ * @return boolean whether the header is correct or not
  */
 bool BitcoinExchange::_checkHeader(std::string header, input_type type) {
   char delimiter;
@@ -223,7 +223,13 @@ void BitcoinExchange::_checkLine(std::string line, input_type type) {
 
  * @param date The date string to be checked
  * @param type The type of the file (DATABASE or INPUT)
+ *
+ * @return boolean whether the date is correct or not
  */
+static bool isLeapYear(int year) {
+  return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
 bool BitcoinExchange::_checkDate(std::string date, input_type type) {
   if (date.length() != 10)
     return false;
@@ -236,16 +242,29 @@ bool BitcoinExchange::_checkDate(std::string date, input_type type) {
   }
   if (type == INPUT && date < _minDate)
     return false;
+  int year = std::atoi(date.substr(0, 4).c_str());
   int month = std::atoi(date.substr(5, 2).c_str());
-  if (month < 1 || month > 12)
-    return false;
   int day = std::atoi(date.substr(8, 2).c_str());
-  if (month == 2 && day > 29)
+  if (day < 1)
     return false;
-  if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
-    return false;
-  if (day < 1 || day > 31)
-    return false;
+  switch (month) {
+    case 2:
+      if (isLeapYear(year) && day > 29)
+        return false;
+      if (!isLeapYear(year) && day > 28)
+        return false;
+      break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+      if (day > 30)
+        return false;
+      break;
+    default:
+      if (day > 31)
+        return false;
+  }
   return true;
 }
 
@@ -254,6 +273,8 @@ bool BitcoinExchange::_checkDate(std::string date, input_type type) {
 
  * @param value The value string to be checked
  * @param type The type of the file (DATABASE or INPUT)
+ *
+ * @return boolean whether the value is correct or not
  */
 bool BitcoinExchange::_checkValue(std::string value, input_type type) {
   bool dot = false;
