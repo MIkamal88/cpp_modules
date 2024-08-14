@@ -5,14 +5,14 @@ Base *generate(void) {
   int random = std::rand() % 3;
 
   switch (random) {
-  case 0:
-    return (new A);
-  case 1:
-    return (new B);
-  case 2:
-    return (new C);
-  default:
-    return (NULL);
+    case 0:
+      return (new A);
+    case 1:
+      return (new B);
+    case 2:
+      return (new C);
+    default:
+      return (NULL);
   }
 }
 
@@ -25,10 +25,12 @@ Base *generate(void) {
 void identify(Base *p) {
   if (dynamic_cast<A *>(p))
     std::cout << "A" << std::endl;
-  if (dynamic_cast<B *>(p))
+  else if (dynamic_cast<B *>(p))
     std::cout << "B" << std::endl;
-  if (dynamic_cast<C *>(p))
+  else if (dynamic_cast<C *>(p))
     std::cout << "C" << std::endl;
+  else
+    std::cout << "Unknown Type" << std::endl;
 }
 
 /*
@@ -59,23 +61,23 @@ void identify(Base &p) {
     }
   } catch (const std::exception &e2) {
   }
-  std::cerr << "Unknown Type" << std::endl;
+  std::cout << "Unknown Type" << std::endl;
 }
 
 int main(void) {
-	Base *object1 = generate();
-	std::cout << "Object1 is ";
-	identify(object1);
-	delete(object1);
+  Base *object1 = generate();
+  std::cout << "Object1 is ";
+  identify(object1);
+  delete (object1);
 
-	Base *object2 = generate();
-	std::cout << "Object2 is ";
-	identify(object2);
-	delete(object2);
+  Base *object2 = generate();
+  std::cout << "Object2 is ";
+  identify(object2);
+  delete (object2);
 
-	Base *object3 = generate();
-	Base &ref = *object3;
-	std::cout << "Object3 is ";
-	identify(ref);
-	delete (object3);
+  Base *object3 = generate();
+  Base &ref = *object3;
+  std::cout << "Object3 is ";
+  identify(ref);
+  delete (object3);
 }

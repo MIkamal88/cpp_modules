@@ -40,8 +40,8 @@ enum e_type {
 };
 
 class Converter {
- public:
-  // Constructors and destructor
+ private:
+  // Private Constructors and destructor - Static Class (non-instantiable)
   Converter();
   Converter(Converter const &src);
   ~Converter();
@@ -52,6 +52,8 @@ class Converter {
   static void printInt(const std::string &str, int &type);
   static void printChar(const std::string &str, int &type);
   static void printDecimal(const std::string &str, int &type);
+
+public:
   static void convert(const std::string &str);
 
   // Exceptions
